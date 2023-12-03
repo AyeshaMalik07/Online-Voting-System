@@ -25,9 +25,9 @@ namespace Online_Voting_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Form3 F3 = new Form3(); //Admin Login
-            //F3.Show();
-            //this.Hide();
+            Form3 F3 = new Form3(); //Admin Login
+            F3.Show();
+            this.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
