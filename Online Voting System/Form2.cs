@@ -30,9 +30,9 @@ namespace Online_Voting_System
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //Form1 F1 = new Form1();
-            //F1.Show();
-            //this.Hide();
+            Form1 F1 = new Form1();
+            F1.Show();
+            this.Hide();
         }
     }
 }
