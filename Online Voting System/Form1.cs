@@ -37,9 +37,14 @@ namespace Online_Voting_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Form4 F4 = new Form4(); //Voter Login
-            //F4.Show();
-            //this.Hide();
+            Form2 F4 = new Form2(); //Voter Login
+            F4.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
