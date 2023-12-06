@@ -37,7 +37,7 @@ namespace Online_Voting_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form2 F4 = new Form2(); //Voter Login
+            Form4 F4 = new Form4(); //Voter Login
             F4.Show();
             this.Hide();
         }
