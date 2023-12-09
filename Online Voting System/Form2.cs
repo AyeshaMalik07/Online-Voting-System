@@ -99,7 +99,7 @@ namespace Online_Voting_System
             command.Parameters.AddWithValue("@Division", comboBox5.Text);
             command.Parameters.AddWithValue("@District", comboBox6.Text);
             command.Parameters.AddWithValue("@Constituency", comboBox7.Text);
-            //command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
 
             command.Dispose();
             connection.Close();

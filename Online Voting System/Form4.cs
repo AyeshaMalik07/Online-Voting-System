@@ -55,14 +55,14 @@ namespace Online_Voting_System
             {
                 dataReader.Close();
                 command.Dispose();
-                // MessageBox.Show(Name + "\n" + CNIC + "\n" + Constituency);
-                //Form6 F6 = new Form6();
-              //  F6.Username = Name;
-               // F6.CNIC = CNIC;
-               // F6.Constituency = Constituency;
-               // textBox1.Text = "";
-                //textBox2.Text = "";
-               // F6.Show();
+                MessageBox.Show(Name + "\n" + CNIC + "\n" + Constituency);
+                Form6 F6 = new Form6();
+                F6.Username = Name;
+                F6.CNIC = CNIC;
+                F6.Constituency = Constituency;
+                textBox1.Text = "";
+                textBox2.Text = "";
+                F6.Show();
                 this.Hide();
             }
         }
