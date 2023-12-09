@@ -30,8 +30,8 @@ namespace Online_Voting_System
             if (textBox1.Text == "admin" && textBox2.Text == "pass123")
             {
                 MessageBox.Show("Login Successfull!!!");
-                //Form5 F5 = new Form5();
-                //F5.Show();
+                Form5 F5 = new Form5();
+                F5.Show();
                 this.Hide();
             }
             else
