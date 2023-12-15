@@ -126,7 +126,38 @@ namespace Online_Voting_System
         }
         private void DeleteData(int index)
         {
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            connection.Open();
 
+            string deleteQuery = @"Delete FROM Pending WHERE S_No = @index";
+            SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection);
+            deleteCommand.Parameters.AddWithValue("@index", index);
+            deleteCommand.ExecuteNonQuery();
+
+            deleteCommand.Dispose();
+            connection.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string col = "S_No";
+                DataGridViewCell cell = dataGridView1.CurrentRow.Cells[col];
+                object cellValue = cell.Value;
+                int index = Convert.ToInt32(cellValue);
+
+                if (e.ColumnIndex == dataGridView1.Columns[button1.Index].Index)
+                {
+                    AddData(index);
+                    MessageBox.Show("Voter Approved");
+                }
+                else if (e.ColumnIndex == dataGridView1.Columns[button2.Index].Index)
+                {
+                    DeleteData(index);
+                    MessageBox.Show("Voter Rejected");
+                }
+            }
         }
     }
 }
