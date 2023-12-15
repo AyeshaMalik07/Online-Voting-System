@@ -40,5 +40,10 @@ namespace Online_Voting_System
                 pictureBox1.Image = new Bitmap(fileDialog.FileName);
             }
         }
+
+        private void Form7_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Online_Voting_System
 {
     public partial class Form6 : Form
     {
-        String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\afoma\OneDrive\Documents\voting db.mdf"";Integrated Security=True;Connect Timeout=30";
+        String ConnectionString = @"Data Source=AYESHA-PC\SQLEXPRESS;Initial Catalog=""Voting Database"";Integrated Security=True;Pooling=False";
         public Form6()
         {
             InitializeComponent();
@@ -89,6 +89,9 @@ namespace Online_Voting_System
             {
                 MessageBox.Show("Vote Registered Successfully!!!");
                 HasVoted = true;
+                Form1 F1 = new Form1();
+                F1.Show();
+                this.Hide();
             }
             else
             {

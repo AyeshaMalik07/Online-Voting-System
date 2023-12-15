@@ -17,7 +17,6 @@ namespace Online_Voting_System
         public Form3()
         {
             InitializeComponent();
-            //checkBox1.CheckedChanged += checkBox1_CheckedChanged;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -57,7 +56,12 @@ namespace Online_Voting_System
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            textBox2.UseSystemPasswordChar = !checkBox1.Checked;
+            
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

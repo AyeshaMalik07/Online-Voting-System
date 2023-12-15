@@ -39,30 +39,32 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(83, 133);
+            this.dataGridView1.Location = new System.Drawing.Point(93, 166);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 252);
+            this.dataGridView1.Size = new System.Drawing.Size(873, 315);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(408, 59);
+            this.label1.Location = new System.Drawing.Point(459, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 46);
+            this.label1.Size = new System.Drawing.Size(145, 55);
             this.label1.TabIndex = 1;
             this.label1.Text = "Voters";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(28, 405);
+            this.linkLabel1.Location = new System.Drawing.Point(32, 506);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(84, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(101, 20);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Back to Main";
@@ -71,9 +73,9 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(796, 405);
+            this.linkLabel2.Location = new System.Drawing.Point(896, 506);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(111, 16);
+            this.linkLabel2.Size = new System.Drawing.Size(134, 20);
             this.linkLabel2.TabIndex = 3;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Go to Candidates";
@@ -81,15 +83,16 @@
             // 
             // Form5
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Online_Voting_System.Properties.Resources._17628_howtoconsidertaxinvotingpractices_hero_469844;
-            this.ClientSize = new System.Drawing.Size(960, 466);
+            this.ClientSize = new System.Drawing.Size(1080, 582);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form5";
             this.Text = "Voters";
             this.Load += new System.EventHandler(this.Form5_Load);

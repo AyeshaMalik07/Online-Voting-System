@@ -17,7 +17,7 @@ namespace Online_Voting_System
         {
             InitializeComponent();
         }
-        String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\afoma\OneDrive\Documents\voting db.mdf"";Integrated Security=True;Connect Timeout=30";
+        String ConnectionString = @"Data Source=AYESHA-PC\SQLEXPRESS;Initial Catalog=""Voting Database"";Integrated Security=True;Pooling=False";
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(ConnectionString);
@@ -71,6 +71,7 @@ namespace Online_Voting_System
         {
             textBox1.Text = string.Empty;
             textBox2.Text = string.Empty;
+            Application.Exit();
         }
 
         private void Form4_Load(object sender, EventArgs e)

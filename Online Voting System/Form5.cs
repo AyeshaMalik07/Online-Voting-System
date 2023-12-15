@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,8 @@ namespace Online_Voting_System
 {
     public partial class Form5 : Form
     {
-        String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\afoma\OneDrive\Documents\voting db.mdf"";Integrated Security=True;Connect Timeout=30";
+        String ConnectionString = @"Data Source=AYESHA-PC\SQLEXPRESS;Initial Catalog=""Voting Database"";Integrated Security=True;Pooling=False";
+
         DataGridViewButtonColumn button1 = new DataGridViewButtonColumn();
         DataGridViewButtonColumn button2 = new DataGridViewButtonColumn();
         public Form5()
@@ -122,7 +124,7 @@ namespace Online_Voting_System
             insertCommand.Dispose();
             connection.Close();
             MessageBox.Show("Voter Approved!!!");
-            DeleteData(index);
+            dataGridView1.Rows.RemoveAt(index);
         }
         private void DeleteData(int index)
         {
@@ -136,9 +138,11 @@ namespace Online_Voting_System
 
             deleteCommand.Dispose();
             connection.Close();
+
+            dataGridView1.Rows.RemoveAt(index);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -151,11 +155,13 @@ namespace Online_Voting_System
                 {
                     AddData(index);
                     MessageBox.Show("Voter Approved");
+               
                 }
                 else if (e.ColumnIndex == dataGridView1.Columns[button2.Index].Index)
                 {
                     DeleteData(index);
                     MessageBox.Show("Voter Rejected");
+                    
                 }
             }
         }

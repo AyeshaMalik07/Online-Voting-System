@@ -7,7 +7,7 @@ namespace Online_Voting_System
 {
     public partial class Form2 : Form
     {
-        String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\afoma\OneDrive\Documents\voting db.mdf"";Integrated Security=True;Connect Timeout=30";
+        String ConnectionString = @"Data Source=AYESHA-PC\SQLEXPRESS;Initial Catalog=""Voting Database"";Integrated Security=True;Pooling=False";
         public Form2()
         {
             InitializeComponent();
@@ -105,20 +105,10 @@ namespace Online_Voting_System
             connection.Close();
 
             MessageBox.Show("Request sent for Verification");
+            Form1 F1 = new Form1();
+            F1.Show();
+            this.Hide();
 
-            textBox1.Text = string.Empty;
-            textBox2.Text = string.Empty;
-            textBox3.Text = string.Empty;
-            textBox4.Text = string.Empty;
-            comboBox1.Text = string.Empty;
-            comboBox2.Text = string.Empty;
-            comboBox3.Text = string.Empty;
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            comboBox4.Text = string.Empty;
-            comboBox5.Text = string.Empty;
-            comboBox6.Text = string.Empty;
-            comboBox7.Text = string.Empty;
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
@@ -228,6 +218,16 @@ namespace Online_Voting_System
                 connection.Close();
                 cmd.Dispose();
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

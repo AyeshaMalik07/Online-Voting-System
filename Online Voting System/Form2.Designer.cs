@@ -79,7 +79,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(452, 112);
+            this.label2.Location = new System.Drawing.Point(460, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 27);
             this.label2.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(230, 149);
+            this.textBox1.Location = new System.Drawing.Point(226, 149);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(219, 26);
@@ -130,7 +130,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(232, 290);
+            this.label6.Location = new System.Drawing.Point(229, 283);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 27);
             this.label6.TabIndex = 7;
@@ -141,11 +141,12 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(226, 366);
+            this.label7.Location = new System.Drawing.Point(229, 359);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 27);
             this.label7.TabIndex = 8;
             this.label7.Text = "Password";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -194,18 +195,22 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(921, 120);
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label12.Location = new System.Drawing.Point(898, 119);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(112, 20);
+            this.label12.Size = new System.Drawing.Size(153, 27);
             this.label12.TabIndex = 13;
             this.label12.Text = "State/Province";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(936, 198);
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(898, 198);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 20);
+            this.label13.Size = new System.Drawing.Size(92, 27);
             this.label13.TabIndex = 14;
             this.label13.Text = "Division";
             // 
@@ -227,9 +232,10 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(230, 390);
+            this.textBox5.Location = new System.Drawing.Point(226, 390);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
+            this.textBox5.PasswordChar = '*';
             this.textBox5.Size = new System.Drawing.Size(445, 26);
             this.textBox5.TabIndex = 20;
             // 
@@ -260,52 +266,57 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(230, 472);
+            this.comboBox1.Location = new System.Drawing.Point(226, 465);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(49, 28);
+            this.comboBox1.Size = new System.Drawing.Size(67, 28);
             this.comboBox1.TabIndex = 24;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(332, 472);
+            this.comboBox2.Location = new System.Drawing.Point(333, 465);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(54, 28);
+            this.comboBox2.Size = new System.Drawing.Size(67, 28);
             this.comboBox2.TabIndex = 25;
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(441, 472);
+            this.comboBox3.Location = new System.Drawing.Point(428, 465);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(57, 28);
+            this.comboBox3.Size = new System.Drawing.Size(67, 28);
             this.comboBox3.TabIndex = 26;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(945, 298);
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(898, 283);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 20);
+            this.label14.Size = new System.Drawing.Size(83, 27);
             this.label14.TabIndex = 27;
             this.label14.Text = "District";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(878, 390);
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label15.Location = new System.Drawing.Point(851, 388);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(101, 20);
+            this.label15.Size = new System.Drawing.Size(139, 27);
             this.label15.TabIndex = 28;
             this.label15.Text = "Constituency";
             // 
             // comboBox7
             // 
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(1015, 380);
+            this.comboBox7.Location = new System.Drawing.Point(1017, 387);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(147, 28);
@@ -314,29 +325,31 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(860, 434);
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(856, 475);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(254, 24);
+            this.checkBox1.Size = new System.Drawing.Size(309, 29);
             this.checkBox1.TabIndex = 31;
             this.checkBox1.Text = "Agree to Terms and Conditions";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(597, 554);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.Location = new System.Drawing.Point(606, 604);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(266, 41);
             this.button1.TabIndex = 32;
             this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(439, 591);
+            this.linkLabel1.Location = new System.Drawing.Point(222, 614);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(101, 20);
             this.linkLabel1.TabIndex = 33;
@@ -347,7 +360,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(945, 536);
+            this.linkLabel2.Location = new System.Drawing.Point(663, 558);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(153, 20);
             this.linkLabel2.TabIndex = 34;
@@ -358,7 +371,7 @@
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(882, 321);
+            this.comboBox6.Location = new System.Drawing.Point(902, 323);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(121, 28);
             this.comboBox6.TabIndex = 35;
@@ -367,7 +380,7 @@
             // comboBox5
             // 
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(925, 253);
+            this.comboBox5.Location = new System.Drawing.Point(902, 240);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(121, 28);
             this.comboBox5.TabIndex = 36;
@@ -424,7 +437,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Registration";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
