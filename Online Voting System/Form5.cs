@@ -124,7 +124,6 @@ namespace Online_Voting_System
             insertCommand.Dispose();
             connection.Close();
             MessageBox.Show("Voter Approved!!!");
-            dataGridView1.Rows.RemoveAt(index);
         }
         private void DeleteData(int index)
         {
@@ -139,7 +138,6 @@ namespace Online_Voting_System
             deleteCommand.Dispose();
             connection.Close();
 
-            dataGridView1.Rows.RemoveAt(index);
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)

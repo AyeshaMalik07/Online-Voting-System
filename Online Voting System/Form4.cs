@@ -22,51 +22,61 @@ namespace Online_Voting_System
         {
             SqlConnection connection = new SqlConnection(ConnectionString);
             connection.Open();
-            Int64 CNIC_Value = Convert.ToInt64(textBox1.Text);
-            string query = "Select * from Voters where CNIC = @CNIC_Value";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@CNIC_Value", CNIC_Value);
-            SqlDataReader dataReader = command.ExecuteReader();
+            try 
+            { 
+                Int64 CNIC_Value = Convert.ToInt64(textBox1.Text);
+                string query = "Select * from Voters where CNIC = @CNIC_Value";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@CNIC_Value", CNIC_Value);
+                SqlDataReader dataReader = command.ExecuteReader();
 
-            String Name = string.Empty;
-            String CNIC = string.Empty;
-            String Password = string.Empty;
-            String Constituency = string.Empty;
+                String Name = string.Empty;
+                String CNIC = string.Empty;
+                String Password = string.Empty;
+                String Constituency = string.Empty;
 
-            int chk = 0;
-            while (dataReader.Read())
-            {
-                Name = dataReader.GetString(1) + " " + dataReader.GetString(2);
-                CNIC = dataReader.GetInt64(3).ToString();
-                Password = dataReader.GetString(5);
-                Constituency = dataReader.GetString(11);
-
-                if (CNIC == textBox1.Text.ToString() && Password == textBox2.Text.ToString())
+                int chk = 0;
+                while (dataReader.Read())
                 {
-                    MessageBox.Show("Login Successful!!!" + "\n\n" + "Welcome " + Name);
-                    chk = 1;
+                    Name = dataReader.GetString(1) + " " + dataReader.GetString(2);
+                    CNIC = dataReader.GetInt64(3).ToString();
+                    Password = dataReader.GetString(5);
+                    Constituency = dataReader.GetString(11);
+
+                    if (CNIC == textBox1.Text.ToString() && Password == textBox2.Text.ToString())
+                    {
+                        MessageBox.Show("Login Successful!!!" + "\n\n" + "Welcome " + Name);
+                        chk = 1;
+                    }
+                }
+                if (chk == 0)
+                {
+                    MessageBox.Show("Invalid CNIC or Password!!!");
+                }
+                else
+                {
+                    dataReader.Close();
+                    command.Dispose();
+                    MessageBox.Show(Name + "\n" + CNIC + "\n" + Constituency);
+                    Form6 F6 = new Form6();
+                    F6.Username = Name;
+                    F6.CNIC = CNIC;
+                    F6.Constituency = Constituency;
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    F6.Show();
+                    this.Hide();
                 }
             }
-            if (chk == 0)
+            catch(FormatException)
             {
-                MessageBox.Show("Invalid CNIC or Password!!!");
+                MessageBox.Show("Invalid input format. Please enter a valid CNIC value.");
             }
-            else
+            finally
             {
-                dataReader.Close();
-                command.Dispose();
-                MessageBox.Show(Name + "\n" + CNIC + "\n" + Constituency);
-                Form6 F6 = new Form6();
-                F6.Username = Name;
-                F6.CNIC = CNIC;
-                F6.Constituency = Constituency;
-                textBox1.Text = "";
-                textBox2.Text = "";
-                F6.Show();
-                this.Hide();
+                connection.Close();
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = string.Empty;

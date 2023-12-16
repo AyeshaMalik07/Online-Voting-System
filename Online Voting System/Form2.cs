@@ -64,53 +64,73 @@ namespace Online_Voting_System
         {
             SqlConnection connection = new SqlConnection(ConnectionString);
             connection.Open();
-
-            string query = @"Insert into Pending (First_Name, Last_Name, CNIC, Email, Password, DOB, Gender, Province, Division, District, Constituency) Values (@First_Name, @Last_Name, @CNIC, @Email, @Password, @DOB, @Gender, @Province, @Division, @District, @Constituency)";
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@First_Name", textBox1.Text);
-            command.Parameters.AddWithValue("@Last_Name", textBox2.Text);
-            command.Parameters.AddWithValue("@CNIC", textBox3.Text);
-            command.Parameters.AddWithValue("@Email", textBox4.Text);
-            command.Parameters.AddWithValue("@Password", textBox5.Text);
-
-            string selectedDay = comboBox1.Text;
-            string selectedMonth = comboBox2.Text;
-            string selectedYear = comboBox3.Text;
-            string formattedDate = $"{selectedDay.PadLeft(2, '0')}-{selectedMonth.PadLeft(2, '0')}-{selectedYear}";
-            string format = "dd-MMM-yyyy";
-            DateTime date = DateTime.ParseExact(formattedDate, format, CultureInfo.InvariantCulture);
-
-            command.Parameters.AddWithValue("@DOB", date.ToString("dd-MMM-yyyy"));
-
-            string gender = string.Empty;
-
-            if (radioButton1.Checked)
+            try
             {
-                gender = radioButton1.Text;
+                if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) ||
+                string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text) ||
+            string.IsNullOrWhiteSpace(textBox5.Text) || comboBox1.SelectedIndex == -1 ||
+            comboBox2.SelectedIndex == -1 || comboBox3.SelectedIndex == -1 ||
+            string.IsNullOrWhiteSpace(comboBox4.Text) || string.IsNullOrWhiteSpace(comboBox5.Text) ||
+            string.IsNullOrWhiteSpace(comboBox6.Text) || string.IsNullOrWhiteSpace(comboBox7.Text))
+                {
+                    MessageBox.Show("Please fill in all the fields.");
+                    return;
+                }
+                Int64 CNIC_Value = Convert.ToInt64(textBox3.Text.Replace("-", ""));
+                string query = @"Insert into Pending (First_Name, Last_Name, CNIC, Email, Password, DOB, Gender, Province, Division, District, Constituency) Values (@First_Name, @Last_Name, @CNIC, @Email, @Password, @DOB, @Gender, @Province, @Division, @District, @Constituency)";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@First_Name", textBox1.Text);
+                command.Parameters.AddWithValue("@Last_Name", textBox2.Text);
+                command.Parameters.AddWithValue("@CNIC", CNIC_Value);
+                command.Parameters.AddWithValue("@Email", textBox4.Text);
+                command.Parameters.AddWithValue("@Password", textBox5.Text);
+
+                string selectedDay = comboBox1.Text;
+                string selectedMonth = comboBox2.Text;
+                string selectedYear = comboBox3.Text;
+                string formattedDate = $"{selectedDay.PadLeft(2, '0')}-{selectedMonth.PadLeft(2, '0')}-{selectedYear}";
+                string format = "dd-MMM-yyyy";
+                DateTime date = DateTime.ParseExact(formattedDate, format, CultureInfo.InvariantCulture);
+
+                command.Parameters.AddWithValue("@DOB", date.ToString("dd-MMM-yyyy"));
+
+                string gender = string.Empty;
+
+                if (radioButton1.Checked)
+                {
+                    gender = radioButton1.Text;
+                }
+                else if (radioButton2.Checked)
+                {
+                    gender = radioButton2.Text;
+                }
+
+                command.Parameters.AddWithValue("@Gender", gender);
+                command.Parameters.AddWithValue("@Province", comboBox4.Text);
+                command.Parameters.AddWithValue("@Division", comboBox5.Text);
+                command.Parameters.AddWithValue("@District", comboBox6.Text);
+                command.Parameters.AddWithValue("@Constituency", comboBox7.Text);
+                command.ExecuteNonQuery();
+
+                command.Dispose();
+                connection.Close();
+
+                MessageBox.Show("Request sent for Verification");
+                Form1 F1 = new Form1();
+                F1.Show();
+                this.Hide();
+
             }
-            else if (radioButton2.Checked)
+            catch (FormatException)
             {
-                gender = radioButton2.Text;
+                MessageBox.Show("Invalid CNIC format. Please enter a valid CNIC value without hyphen.");
             }
-
-            command.Parameters.AddWithValue("@Gender", gender);
-            command.Parameters.AddWithValue("@Province", comboBox4.Text);
-            command.Parameters.AddWithValue("@Division", comboBox5.Text);
-            command.Parameters.AddWithValue("@District", comboBox6.Text);
-            command.Parameters.AddWithValue("@Constituency", comboBox7.Text);
-            command.ExecuteNonQuery();
-
-            command.Dispose();
-            connection.Close();
-
-            MessageBox.Show("Request sent for Verification");
-            Form1 F1 = new Form1();
-            F1.Show();
-            this.Hide();
-
+            finally
+            {
+                connection.Close();
+            }
         }
-
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox5.Enabled = true;
