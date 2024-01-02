@@ -14,7 +14,8 @@ namespace Online_Voting_System
 {
     public partial class Form5 : Form
     {
-        String ConnectionString = @"Data Source=AYESHA-PC\SQLEXPRESS;Initial Catalog=""Voting Database"";Integrated Security=True;Pooling=False";
+        String ConnectionString = @"Data Source=AYESHA-PC\SQLEXPRESS;Initial Catalog=Voting Database;Integrated Security=True;Pooling=False;Connection Timeout=30";
+
 
         DataGridViewButtonColumn button1 = new DataGridViewButtonColumn();
         DataGridViewButtonColumn button2 = new DataGridViewButtonColumn();
@@ -153,13 +154,12 @@ namespace Online_Voting_System
                 {
                     AddData(index);
                     MessageBox.Show("Voter Approved");
-               
+
                 }
                 else if (e.ColumnIndex == dataGridView1.Columns[button2.Index].Index)
                 {
                     DeleteData(index);
                     MessageBox.Show("Voter Rejected");
-                    
                 }
             }
         }

@@ -57,7 +57,6 @@ namespace Online_Voting_System
                 {
                     dataReader.Close();
                     command.Dispose();
-                    MessageBox.Show(Name + "\n" + CNIC + "\n" + Constituency);
                     Form6 F6 = new Form6();
                     F6.Username = Name;
                     F6.CNIC = CNIC;
