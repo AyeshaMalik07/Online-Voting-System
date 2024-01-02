@@ -101,5 +101,11 @@ namespace Online_Voting_System
             F1.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+        }
     }
 }

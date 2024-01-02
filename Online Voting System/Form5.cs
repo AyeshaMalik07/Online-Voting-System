@@ -155,6 +155,7 @@ namespace Online_Voting_System
                     AddData(index);
                     MessageBox.Show("Voter Approved");
 
+
                 }
                 else if (e.ColumnIndex == dataGridView1.Columns[button2.Index].Index)
                 {
